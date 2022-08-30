@@ -18,4 +18,4 @@
 :kotlin-code: {rootProject}/src/main/kotlin/com/jcohy/sample
 :go-code: {rootProject}/src/main/go/com/jcohy/sample
 
-:oss-images: https://study.jcohy.com/images
+:oss-images: https://study.jcohy.com/images/spring
