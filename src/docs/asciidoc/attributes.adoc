@@ -1,0 +1,21 @@
+:doctype: book
+:idprefix:
+:idseparator: -
+:toc: left
+:toclevels: 5
+:tabsize: 5
+:numbered:
+:sectanchors:
+:sectnums:
+:icons: font
+:hide-uri-scheme:
+:docinfo: shared,private
+:revnumber: {version}
+:revdate: {localdate}
+
+
+:java-code: {rootProject}/src/main/java/com/jcohy/sample
+:kotlin-code: {rootProject}/src/main/kotlin/com/jcohy/sample
+:go-code: {rootProject}/src/main/go/com/jcohy/sample
+
+:oss-images: https://study.jcohy.com/images
