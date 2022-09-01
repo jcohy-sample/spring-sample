@@ -6,7 +6,7 @@ on:
       uploadOss:
         description: '是否上传到 OSS'
         required: true
-        default: 'false'
+        default: 'true'
 
 permissions: read-all
 

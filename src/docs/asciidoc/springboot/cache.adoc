@@ -1,5 +1,5 @@
 [[spring-advanced-cache]]
-= SpringBoot之缓存
+= SpringBoot 之缓存
 
 [[spring-advanced-cache-jsr107]]
 == JSR107

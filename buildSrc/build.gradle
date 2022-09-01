@@ -14,7 +14,7 @@ dependencies {
 	implementation("org.asciidoctor:asciidoctor-gradle-jvm:3.3.2")
 	implementation("org.asciidoctor:asciidoctor-gradle-jvm-pdf:3.3.2")
 	implementation("com.jcohy.gradle:jcohy-java-convention:${jcohyJavaFormatVersion}")
-	implementation("com.jcohy.gradle:jcohy-ali-oss:0.0.5.5")
+	implementation("com.jcohy.gradle:jcohy-ali-oss:${jcohyJavaFormatVersion}")
 	implementation("org.springframework:spring-core:5.2.2.RELEASE")
 	implementation("org.springframework:spring-web:5.2.2.RELEASE")
 	implementation("org.apache.maven:maven-embedder:3.6.2")
@@ -28,6 +28,10 @@ gradlePlugin {
 		docsPlugin {
 			id = "com.jcohy.docs"
 			implementationClass = "com.jcohy.sample.build.JcohyAsciidoctorPlugins"
+		}
+		deployedPlugin {
+			id = "com.jcohy.module"
+			implementationClass = "com.jcohy.sample.build.JavaModulePlugins"
 		}
 		uploadPlugin {
 			id = "com.jcohy.oss-upload"

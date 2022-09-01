@@ -1,2 +1,5 @@
 rootProject.name = 'spring-sample'
 
+include "bom"
+
+include "spring"
