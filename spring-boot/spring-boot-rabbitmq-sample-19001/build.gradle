@@ -1,0 +1,18 @@
+plugins {
+    id "com.jcohy.module"
+}
+
+description = "SpringBoot RabbitMQ Sample"
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-amqp"
+    implementation "org.springframework.boot:spring-boot-starter-json"
+//    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+//    implementation "com.google.guava:guava"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+

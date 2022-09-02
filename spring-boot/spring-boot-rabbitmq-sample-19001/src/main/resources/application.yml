@@ -1,0 +1,14 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirm-type: correlated
+
+server:
+  port: 19001

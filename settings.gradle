@@ -1,5 +1,8 @@
 rootProject.name = 'spring-sample'
 
-include "bom"
+include ":bom"
 
-include "spring"
+include ":spring"
+
+include ":spring-boot"
+include ":spring-boot:spring-boot-rabbitmq-sample-19001"
