@@ -1,0 +1,10 @@
+server:
+  port: 16001
+spring:
+  thymeleaf:
+    cache: false
+logging:
+  level:
+    root: warn
+    org.springframework.web: INFO
+    org.springframework.security: INFO
