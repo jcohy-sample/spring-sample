@@ -1,6 +1,4 @@
-package com.jcohy.sample.spring_boot.bloomfilter;
-
-import java.util.List;
+package bloomfilter;
 
 /**
  * 描述: .
@@ -12,10 +10,16 @@ import java.util.List;
  * @version 2022.04.0 2022/9/1:14:36
  * @since 2022.04.0
  */
+public class User {
 
-public interface UserService {
+    String name;
 
-    List<User> findAllUser();
+    public String getName() {
+        return name;
+    }
 
-    User getUserByName(String name);
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

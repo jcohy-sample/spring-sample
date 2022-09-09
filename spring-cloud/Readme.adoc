@@ -1,0 +1,46 @@
+== 版本说明
+
+
+|===
+|组件 |版本号 |备注
+
+| SpringBoot
+| 2.6.11
+|
+
+| SpringCloud
+| 2021.0.4
+|
+
+| Gradle
+| 6.9.2
+|
+
+| SpringCloud Alibaba
+|
+|
+|===
+
+
+== 模块说明
+
+|===
+|模块 |端口号 |备注
+
+| spring-cloud-eureka-sample-17001
+| 17001
+| 注册中心
+
+| spring-cloud-gateway-sample-17002
+| 17002
+| 路由和简单鉴权，基于token，只对用户名为admin，spring，cloud的用户授权访问。
+|===
+
+== 数据库脚本
+
+==
+
+== 启动
+
+1、首先启动注册中心 `spring-cloud-eureka-sample-17001` 模块
+2、通过浏览器打开 `http://localhost:17001`

@@ -1,4 +1,4 @@
-package com.jcohy.sample.spring_boot.bloomfilter;
+package bloomfilter;
 
 import java.util.List;
 

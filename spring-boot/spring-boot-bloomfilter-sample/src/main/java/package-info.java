@@ -8,4 +8,3 @@
  * @version 2022.04.0 2022/9/1:14:35
  * @since 2022.04.0
  */
-package com.jcohy.sample.spring_boot;

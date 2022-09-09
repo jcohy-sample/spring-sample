@@ -1,0 +1,13 @@
+plugins {
+	id "com.jcohy.module"
+}
+
+description = "Spring Cloud Eureka Sample"
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "com.google.code.gson:gson"
+    implementation "org.springframework.boot:spring-boot-devtools"
+}
