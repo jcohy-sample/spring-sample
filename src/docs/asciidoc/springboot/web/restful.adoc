@@ -290,9 +290,9 @@ URI:   /资源名称/资源标识       HTTP请求方式区分对资源CRUD操�
 
 | 添加 | addEmp?xxx                | emp---POST
 
-| 修改 | updateEmp?id=xxx&xxx=xx   | emp/{id}---PUT
+| 修改 | updateEmp?id=xxx&xxx=xx   | emp/\{id}---PUT
 
-| 删除 | deleteEmp?id=1            | emp/{id}---DELETE
+| 删除 | deleteEmp?id=1            | emp/\{id}---DELETE
 |===
 
 2)、实验的请求架构;

@@ -3,7 +3,7 @@
 
 == 多Profile文件
 
-我们在主配置文件编写的时候,文件名可以是   application-{profile}.properties/yml
+我们在主配置文件编写的时候,文件名可以是   application-\{profile}.properties/yml
 
 默认使用application.properties的配置;
 

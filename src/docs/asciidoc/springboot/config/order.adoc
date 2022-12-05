@@ -23,20 +23,20 @@ java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar --server.port=8087  --serv
 
 优先加载带profile
 
-**6.jar包外部的application-{profile}.properties或application.yml(带spring.profile)配置文件**
+**6.jar包外部的application-\{profile}.properties或application.yml(带spring.profile)配置文件**
 
-**7.jar包内部的application-{profile}.properties或application.yml(带spring.profile)配置文件**
+**7.jar包内部的application-\{profile}.properties或application.yml(带spring.profile)配置文件**
 
 再来加载不带profile
 
 **8.jar包外部的application.properties或application.yml(不带spring.profile)配置文件**
 
-**9.jar包内部的application.properties或application.yml(不带spring.profile)配置文件**
+**9. jar 包内部的 `application.properties` 或 `application.yml` (不带 `spring.profile` )配置文件**
 
-**10.@Configuration注解类上的@PropertySource**
+**10. `@Configuration` 注解类上的 `@PropertySource` **
 
-**11.通过SpringApplication.setDefaultProperties指定的默认属性**
+**11.通过 SpringApplication.setDefaultProperties 指定的默认属性**
 
 所有支持的配置加载来源;
 
-{spring-boot-chinese-docs}/spring-boot-features.html#boot-features-external-config[参考官方文档]
+{spring-boot-chinese-docs}/features.html#features.external-config[参考官方文档]

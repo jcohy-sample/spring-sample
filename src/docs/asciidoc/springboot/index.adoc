@@ -1,3 +1,4 @@
+[[spring-boot-basic]]
 = SpringBoot 基础版
 
 本节讨论 Spring Boot 的入门知识.

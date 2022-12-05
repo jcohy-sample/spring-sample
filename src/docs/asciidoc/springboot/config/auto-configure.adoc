@@ -3,7 +3,7 @@
 
 配置文件到底能写什么？怎么写？自动配置原理;
 
-{spring-boot-chinese-docs}/appendix-application-properties.html#common-application-properties[配置文件能配置的属性参照]
+{spring-boot-chinese-docs}/application-properties.html#appendix.application-properties.core[配置文件能配置的属性参照]
 
 == **自动配置原理: **
 

@@ -35,13 +35,13 @@ SpringBoot默认帮我们配置好了日志;
 
 %-5level: 级别从左显示5个字符宽度
 
-%logger{50} 表示logger名字最长50个字符,否则按照句点分割.
+%logger\{50} 表示logger名字最长50个字符,否则按照句点分割.
 
 %msg: 日志消息,
 
 %n是换行符
 
-%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger\{50} - %msg%n
 SpringBoot修改日志的默认配置
 
 [source,properties]
