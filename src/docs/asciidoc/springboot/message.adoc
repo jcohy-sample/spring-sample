@@ -198,3 +198,8 @@ public class MyAMQPConfig {
     }
 }
 ----
+
+[[spring-advanced-message-rabbitmq-sample]]
+=== 示例
+
+https://github.com/jcohy-sample/spring-sample/tree/main/spring-boot/spring-boot-rabbitmq-sample-15001[RabbitMQ 示例]

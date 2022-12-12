@@ -2,7 +2,7 @@ package com.jcohy.sample.spring.bean;
 
 import org.springframework.beans.factory.FactoryBean;
 
-//创建一个Spring定义的FactoryBean
+//创建一个 Spring 定义的 FactoryBean
 public class ColorFactoryBean implements FactoryBean<Color> {
 
 	// 返回一个Color对象，这个对象会添加到容器中

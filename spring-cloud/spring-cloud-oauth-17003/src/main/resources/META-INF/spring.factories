@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.jcohy.sample.spring_cloud.oauth.config.CommonConfiguration

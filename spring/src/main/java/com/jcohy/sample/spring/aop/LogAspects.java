@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  * @author lfy
  *
- * @Aspect： 告诉Spring当前类是一个切面类
+ * @Aspect： 告诉 Spring 当前类是一个切面类
  *
  */
 @Aspect

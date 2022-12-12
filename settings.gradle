@@ -11,3 +11,9 @@ include ":spring-security:spring-security-16001"
 
 include ":spring-cloud:spring-cloud-eureka-sample-17001"
 include ":spring-cloud:spring-cloud-gateway-sample-17002"
+include ":spring-cloud:spring-cloud-oauth-17003"
+
+include ":spring-cloud:spring-cloud-provider"
+include ":spring-cloud:spring-cloud-provider:course-service-18001"
+include ":spring-cloud:spring-cloud-provider:student-service-18002"
+include ":spring-cloud:spring-cloud-provider:teacher-service-18003"

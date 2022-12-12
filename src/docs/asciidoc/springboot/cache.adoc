@@ -137,7 +137,7 @@ redisTemplate.opsForZSet();//操作有序set
 
 5.测试使用缓存、切换缓存、 CompositeCacheManager
 
-* 引入redis的starter,容器中保存的是RedisCacheManager,
-* RedisCacheManager帮我们创建RedisCache来作为缓存组件,RedisCache通过操作Redis缓存数据
-* 默认创建RedisCacheManager操作redis的时候使用的死RedisTemplate<Object,Object>.默认使用jdk的序列化机制
-* 自定义CacheManager
+* 引入 redis 的 starter,容器中保存的是 RedisCacheManager,
+* RedisCacheManager 帮我们创建 RedisCache 来作为缓存组件,RedisCache 通过操作 Redis 缓存数据
+* 默认创建 RedisCacheManager 操作redis的时候使用的死 RedisTemplate<Object,Object>.默认使用 jdk 的序列化机制
+* 自定义 CacheManager

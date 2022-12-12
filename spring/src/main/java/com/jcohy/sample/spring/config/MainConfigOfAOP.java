@@ -126,9 +126,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * 2）、CglibAopProxy.intercept()； 1）、得到目标方法的拦截器链（增强器包装成拦截器MethodInterceptor）
  * 2）、利用拦截器的链式机制，依次进入每一个拦截器进行执行； 3）、效果： 正常执行：前置通知-》目标方法-》后置通知-》返回通知
  * 出现异常：前置通知-》目标方法-》后置通知-》异常通知
- *
- *
- *
  */
 @EnableAspectJAutoProxy
 @Configuration

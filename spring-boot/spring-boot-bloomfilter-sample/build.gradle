@@ -6,7 +6,6 @@ description = "SpringBoot BloomFilter Sample"
 
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web"
-	implementation "org.springframework.boot:spring-boot-starter-data-redis"
 	implementation "com.google.guava:guava"
 }
 
