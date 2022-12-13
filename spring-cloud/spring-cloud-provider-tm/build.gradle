@@ -1,0 +1,19 @@
+plugins {
+	id "com.jcohy.module"
+}
+
+description = "Spring Cloud Provider Sample"
+
+subprojects {
+    apply plugin: 'com.jcohy.module'
+    dependencies {
+        implementation(project(":spring-cloud:spring-cloud-provider-tm"))
+        implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+        implementation "org.springframework.boot:spring-boot-starter-web"
+        implementation "com.codingapi.txlcn:txlcn-tc"
+        implementation "com.codingapi.txlcn:txlcn-txmsg-netty"
+        implementation "io.jsonwebtoken:jjwt"
+        implementation "com.alibaba:fastjson"
+        implementation "org.springframework.boot:spring-boot-starter-actuator"
+    }
+}

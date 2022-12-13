@@ -1,0 +1,55 @@
+### 添加赵雷成绩
+POST http://localhost:18002/student/score/add
+Content-Type: application/json
+
+{
+  "sname": "赵雷",
+  "mapList": [
+    {
+      "cname": "语文",
+      "tname": "张三",
+      "score": 69
+    },
+    {
+      "cname": "数学",
+      "tname": "李四",
+      "score": 89
+    },
+    {
+      "cname": "英语",
+      "tname": "王五",
+      "score": 66
+    }
+  ]
+}
+
+### 查看赵雷成绩
+GET http://localhost:18002/student/name/赵雷
+
+### 添加田电成绩（异常）
+POST http://localhost:18002/student/score/add?ex
+Content-Type: application/json
+
+{
+  "sname": "田电",
+  "mapList": [
+    {
+      "cname": "语文",
+      "tname": "张三",
+      "score": 69
+    },
+    {
+      "cname": "数学",
+      "tname": "李四",
+      "score": 89
+    },
+    {
+      "cname": "英语",
+      "tname": "王五",
+      "score": 66
+    }
+  ]
+}
+
+### 查看田电成绩
+GET http://localhost:18002/student/name/田电

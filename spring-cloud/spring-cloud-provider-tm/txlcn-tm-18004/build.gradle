@@ -1,0 +1,6 @@
+description = "Spring Cloud Transation Manager Sample"
+
+dependencies {
+    implementation "com.codingapi.txlcn:txlcn-tm"
+    runtimeOnly 'mysql:mysql-connector-java'
+}

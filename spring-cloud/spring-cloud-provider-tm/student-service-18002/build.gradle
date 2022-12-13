@@ -1,0 +1,7 @@
+description = "Spring Cloud Provider Student Service Sample"
+
+
+dependencies {
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server"
+}

@@ -77,6 +77,7 @@ dependencies {
 
 		api (
 				[group: 'com.codingapi.txlcn', name: 'txlcn-tc', version: "${txLcnVersion}"],
+				[group: 'com.codingapi.txlcn', name: 'txlcn-tm', version: "${txLcnVersion}"],
 				[group: 'com.codingapi.txlcn', name: 'txlcn-txmsg-netty', version: "${txLcnVersion}"]
 		)
 
