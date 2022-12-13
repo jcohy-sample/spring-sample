@@ -1,6 +1,6 @@
 = 目标
 
-您将构建一个应用程序，将使用 TM 来管理分布式事务
+您将构建一个应用程序，将使用 Eureka + txlcn 来管理分布式事务
 
 == 准备
 
@@ -279,6 +279,8 @@ Content-Type: application/json
 
 == 源码
 
-https://github.com/jcohy-sample/spring-sample/tree/main/spring-cloud/spring-cloud-provider-tm[源码] 和 http
+https://github.com/jcohy-sample/spring-sample/tree/main/spring-cloud/spring-cloud-provider-tm[源码] 和 https://github.com/jcohy-sample/spring-sample/blob/main/spring-cloud/spring-cloud-provider-tm/http/provider.http[http 请求文件]
 
+== 参考
 
+https://xxx[]

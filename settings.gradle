@@ -13,6 +13,12 @@ include ":spring-cloud:spring-cloud-eureka-sample-17001"
 include ":spring-cloud:spring-cloud-gateway-sample-17002"
 include ":spring-cloud:spring-cloud-oauth-17003"
 
+include ":spring-cloud:spring-cloud-provider"
+include ":spring-cloud:spring-cloud-provider:account-service-19001"
+include ":spring-cloud:spring-cloud-provider:business-service-19002"
+include ":spring-cloud:spring-cloud-provider:order-service-19003"
+include ":spring-cloud:spring-cloud-provider:storage-service-19004"
+
 include ":spring-cloud:spring-cloud-provider-tm"
 include ":spring-cloud:spring-cloud-provider-tm:txlcn-tm-18004"
 include ":spring-cloud:spring-cloud-provider-tm:course-service-18001"

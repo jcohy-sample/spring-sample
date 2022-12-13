@@ -1,0 +1,177 @@
+= 目标
+
+您将构建一个应用程序，将使用 Nacos + Seata 来创建分布式应用
+
+== 准备
+
+* 15 分钟
+* 一个你喜欢的文本编辑器或 IDE
+* JDK 1.8 以上
+* Nacos 1.3.2
+* Seatable1.4.2
+* Gradle 4+ 或 Maven 3.2+
+* 您还可以将代码直接导入到您的 IDE 中：
+** Spring Tool Suite (STS)
+** IntelliJ IDEA
+** VSCode
+
+== 开发
+
+与大多数 Spring 入门指南一样，您可以从头开始并完成每个步骤，也可以绕过您已经熟悉的基本设置步骤。 无论哪种方式，您最终都会得到有效的代码。
+
+== 下载安装并启动 Nacos，Seata
+
+https://nacos.io/zh-cn/docs/quick-start.html[Nacos 快速开始]
+
+https://github.com/alibaba/spring-cloud-alibaba/blob/2021.x/spring-cloud-alibaba-docs/src/main/asciidoc-zh/sca-upgrade-guide.adoc#spring-cloud-alibaba-2021010-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97[Nacos 升级指南]
+
+在 Nacos 中添加 `account-service-19001-dev.yml` 文件。
+
+=== 创建服务
+
+一次分别创建 `account-service-19001`， `order-service-19003`， `storage-service-19004`， `business-service-19002` 服务。
+
+=== 创建一个 Application 类
+
+在启动类上需要加上 `@EnableTransactionManagerServer` 注解
+
+[source,java]
+----
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
+public class BusinessProvider19002 {
+    public static void main(String[] args) {
+        SpringApplication.run(BusinessProvider19002.class, args);
+    }
+}
+----
+
+`@SpringBootApplication` 是一个简便的注解，它添加了以下所有内容：
+
+* `@Configuration`：将类标记为应用程序上下文的 bean 定义源。
+* `@EnableAutoConfiguration`：告诉 Spring Boot 开始添加基于类路径设置、其他 bean 和各种属性设置的 beans。例如，如果 spring-webmvc 在类路径上，则此注解将应用程序标记为 Web 应用程序并激活关键行为，例如设置 `DispatcherServlet`。
+* `@ComponentScan`：告诉 Spring 在 `com/jcohy/sample/spring_cloud/tm` 包中寻找其他组件、配置和服务，让它找到控制器。
+
+`@EnableDiscoveryClient` 注解开启服务注册发现。
+`@EnableFeignClients` 启用 feign 客户端。
+
+== 创建 Provider
+
+`@RefreshScope` : 动态刷新
+`GlobalTransactional` : 启用全局事务支持
+
+== 运行
+
+. 启动 Nacos 注册中心
+. 启动四个服务  `account-service-19001`， `order-service-19003`， `storage-service-19004`， `business-service-19002`
+
+== 测试
+
+1、添加学生成绩
+
+[source,http]
+----
+POST http://localhost:18002/student/score/add
+Content-Type: application/json
+
+{
+  "sname": "赵雷",
+  "mapList": [
+    {
+      "cname": "语文",
+      "tname": "张三",
+      "score": 69
+    },
+    {
+      "cname": "数学",
+      "tname": "李四",
+      "score": 89
+    },
+    {
+      "cname": "英语",
+      "tname": "王五",
+      "score": 66
+    }
+  ]
+}
+----
+
+2、查看
+
+[source,http]
+----
+GET http://localhost:18002/student/name/赵雷
+----
+
+返回结果
+
+[source,json]
+----
+{
+  "sname": "赵雷",
+  "mapList": [
+    {
+      "score": 69,
+      "cname": "语文",
+      "tname": "张三"
+    },
+    {
+      "score": 89,
+      "cname": "数学",
+      "tname": "李四"
+    },
+    {
+      "score": 66,
+      "cname": "英语",
+      "tname": "王五"
+    }
+  ]
+}
+----
+
+3、现在让我模拟异常请求，在第一步的请求中添加 `exFlag` 标志即可。在调用 课程和教师服务后模拟异常进行回滚操作
+
+[source,http]
+----
+POST http://localhost:18002/student/score/add?ex
+Content-Type: application/json
+
+{
+  "sname": "田电",
+  "mapList": [
+    {
+      "cname": "语文",
+      "tname": "张三",
+      "score": 69
+    },
+    {
+      "cname": "数学",
+      "tname": "李四",
+      "score": 89
+    },
+    {
+      "cname": "英语",
+      "tname": "王五",
+      "score": 66
+    }
+  ]
+}
+----
+
+4、查看结果 `http://localhost:18002/student/name/田电`，结果如下
+
+[source,json]
+----
+{
+"sname": "田电",
+"mapList": []
+}
+----
+
+
+== 源码
+
+https://github.com/jcohy-sample/spring-sample/tree/main/spring-cloud/spring-cloud-provider-tm[源码] 和 https://github.com/jcohy-sample/spring-sample/blob/main/spring-cloud/spring-cloud-provider-tm/http/provider.http[http 请求文件]
+
+

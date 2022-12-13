@@ -1,0 +1,6 @@
+### 购买下单，模拟全局事务提交
+GET http://localhost:19002/purchase/commit
+
+
+### 购买下单，模拟全局事务回滚
+GET http://localhost:19002/purchase/rollback

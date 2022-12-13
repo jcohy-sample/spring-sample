@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: account-service-19001
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        #bebac610-16ce-4990-bd27-70b3a35bc493
+      config:
+        server-addr: localhost:8848
+        #bebac610-16ce-4990-bd27-70b3a35bc493
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}
+        file-extension: yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include*: "*"
+#
+#user:
+#  name: jcohy
+#message:
+#  prefix: msg

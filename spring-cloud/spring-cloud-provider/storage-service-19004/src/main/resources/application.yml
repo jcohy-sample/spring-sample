@@ -1,0 +1,13 @@
+
+server:
+  port: 19004
+
+spring:
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*"

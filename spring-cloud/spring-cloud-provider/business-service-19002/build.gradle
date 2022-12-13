@@ -1,0 +1,6 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+    implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-seata"
+}
+

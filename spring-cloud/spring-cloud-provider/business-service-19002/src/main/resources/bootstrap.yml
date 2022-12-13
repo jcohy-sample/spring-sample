@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: business-service-19002
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        group: DEFAULT_GROUP
+        prefix: ${spring.application.name}
+        file-extension: yml
+
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+

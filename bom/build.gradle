@@ -8,7 +8,6 @@ javaPlatform {
 
 ext {
 	//================= framework =================
-	set('springCloudAlibabaVersion', "2.2.2.RELEASE")
 	set('aliyunSpringBootVersion', "1.0.0")
 	set('mybatisPlusStarterVersion', "3.3.1")
 	set('justAuthVersion', "1.15.9")
