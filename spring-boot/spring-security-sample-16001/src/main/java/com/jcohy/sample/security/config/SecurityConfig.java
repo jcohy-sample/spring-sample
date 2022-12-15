@@ -14,7 +14,8 @@ import org.springframework.security.web.SecurityFilterChain;
 /**
  * 描述: .
  * <p>
- * Copyright © 2022 <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
+ * Copyright © 2022
+ * <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
  * </p>
  *
  * @author jiac
@@ -24,30 +25,20 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.authorizeRequests((authorize) ->
-                authorize
-                        .antMatchers("/css/**","/index")
-                        .permitAll()
-                        .antMatchers("/user/**")
-                        .hasRole("USER"))
-                .formLogin(formLogin ->
-                        formLogin
-                                .loginPage("/login")
-                                .failureUrl("/login-error"))
-                .build();
-    }
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		return http
+				.authorizeRequests((authorize) -> authorize.antMatchers("/css/**", "/index").permitAll()
+						.antMatchers("/user/**").hasRole("USER"))
+				.formLogin(formLogin -> formLogin.loginPage("/login").failureUrl("/login-error")).build();
+	}
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserDetails userDetails = User
-                .withUsername("user")
-                .password("password")
-                .roles("USER")
-                .passwordEncoder(encoder::encode)
-                .build();
-        return new InMemoryUserDetailsManager(userDetails);
-    }
+	@Bean
+	public UserDetailsService userDetailsService() {
+		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		UserDetails userDetails = User.withUsername("user").password("password").roles("USER")
+				.passwordEncoder(encoder::encode).build();
+		return new InMemoryUserDetailsManager(userDetails);
+	}
+
 }

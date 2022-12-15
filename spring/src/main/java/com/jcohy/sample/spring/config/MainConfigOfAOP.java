@@ -35,14 +35,15 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * AOP原理：【看给容器中注册了什么组件，这个组件什么时候工作，这个组件的功能是什么？】 @EnableAspectJAutoProxy；
  * 1、@EnableAspectJAutoProxy是什么？
  *
- * @Import(AspectJAutoProxyRegistrar.class)：给容器中导入AspectJAutoProxyRegistrar 利用AspectJAutoProxyRegistrar自定义给容器中注册bean；BeanDefinetion
+ * {@code @Import(AspectJAutoProxyRegistrar.class)}：给容器中导入AspectJAutoProxyRegistrar
+ * 利用AspectJAutoProxyRegistrar自定义给容器中注册bean；BeanDefinetion
  * internalAutoProxyCreator=AnnotationAwareAspectJAutoProxyCreator
  *
  * 给容器中注册一个AnnotationAwareAspectJAutoProxyCreator；
  *
- * 2、 AnnotationAwareAspectJAutoProxyCreator： AnnotationAwareAspectJAutoProxyCreator
- * ->AspectJAwareAdvisorAutoProxyCreator ->AbstractAdvisorAutoProxyCreator
- * ->AbstractAutoProxyCreator implements SmartInstantiationAwareBeanPostProcessor,
+ * 2、 AnnotationAwareAspectJAutoProxyCreator： AnnotationAwareAspectJAutoProxyCreator -
+ * &gt; AspectJAwareAdvisorAutoProxyCreator - &gt; AbstractAdvisorAutoProxyCreator - &gt;
+ * AbstractAutoProxyCreator implements SmartInstantiationAwareBeanPostProcessor,
  * BeanFactoryAware 关注后置处理器（在bean初始化完成前后做事情）、自动装配BeanFactory
  *
  * AbstractAutoProxyCreator.setBeanFactory() AbstractAutoProxyCreator.有后置处理器的逻辑；
@@ -68,10 +69,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * 7）、把BeanPostProcessor注册到BeanFactory中； beanFactory.addBeanPostProcessor(postProcessor);
  * =======以上是创建和注册AnnotationAwareAspectJAutoProxyCreator的过程========
  *
- * AnnotationAwareAspectJAutoProxyCreator => InstantiationAwareBeanPostProcessor
+ * AnnotationAwareAspectJAutoProxyCreator =&gt; InstantiationAwareBeanPostProcessor
  * 4）、finishBeanFactoryInitialization(beanFactory);完成BeanFactory初始化工作；创建剩下的单实例bean
- * 1）、遍历获取容器中所有的Bean，依次创建对象getBean(beanName); getBean->doGetBean()->getSingleton()->
- * 2）、创建bean
+ * 1）、遍历获取容器中所有的 Bean，依次创建对象 getBean(beanName);
+ * getBean-&gt;doGetBean()-&gt;getSingleton()-&gt; 2）、创建bean
  * 【AnnotationAwareAspectJAutoProxyCreator在所有bean创建之前会有一个拦截，InstantiationAwareBeanPostProcessor，会调用postProcessBeforeInstantiation()】
  * 1）、先从缓存中获取当前bean，如果能获取到，说明bean是之前被创建过的，直接使用，否则再创建； 只要创建好的Bean都会被缓存起来
  * 2）、createBean（）;创建bean； AnnotationAwareAspectJAutoProxyCreator 会在任何bean创建之前先尝试返回bean的实例
@@ -90,9 +91,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * 1）、每一个bean创建之前，调用postProcessBeforeInstantiation()； 关心MathCalculator和LogAspect的创建
  * 1）、判断当前bean是否在advisedBeans中（保存了所有需要增强bean）
  * 2）、判断当前bean是否是基础类型的Advice、Pointcut、Advisor、AopInfrastructureBean， 或者是否是切面（@Aspect）
- * 3）、是否需要跳过 1）、获取候选的增强器（切面里面的通知方法）【List<Advisor> candidateAdvisors】 每一个封装的通知方法的增强器是
- * InstantiationModelAwarePointcutAdvisor； 判断每一个增强器是否是 AspectJPointcutAdvisor 类型的；返回true
- * 2）、永远返回false
+ * 3）、是否需要跳过 1）、获取候选的增强器（切面里面的通知方法）【List &lt;Advisor&gt; candidateAdvisors】
+ * 每一个封装的通知方法的增强器是 InstantiationModelAwarePointcutAdvisor； 判断每一个增强器是否是
+ * AspectJPointcutAdvisor 类型的；返回true 2）、永远返回false
  *
  * 2）、创建对象 postProcessAfterInitialization； return wrapIfNecessary(bean, beanName,
  * cacheKey);//包装如果需要的情况下 1）、获取当前bean的所有增强器（通知方法） Object[] specificInterceptors
@@ -104,11 +105,12 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *
  *
  * 3）、目标方法执行 ； 容器中保存了组件的代理对象（cglib增强后的对象），这个对象里面保存了详细信息（比如增强器，目标对象，xxx）；
- * 1）、CglibAopProxy.intercept();拦截目标方法的执行 2）、根据ProxyFactory对象获取将要执行的目标方法拦截器链； List<Object>
- * chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);
- * 1）、List<Object> interceptorList保存所有拦截器 5 一个默认的ExposeInvocationInterceptor 和 4个增强器；
- * 2）、遍历所有的增强器，将其转为Interceptor； registry.getInterceptors(advisor);
- * 3）、将增强器转为List<MethodInterceptor>； 如果是MethodInterceptor，直接加入到集合中
+ * 1）、CglibAopProxy.intercept();拦截目标方法的执行 2）、根据ProxyFactory对象获取将要执行的目标方法拦截器链；
+ * List&lt;Object&gt; chain =
+ * this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);
+ * 1）、List&lt;Object&gt; interceptorList保存所有拦截器 5 一个默认的 ExposeInvocationInterceptor 和
+ * 4个增强器； 2）、遍历所有的增强器，将其转为Interceptor； registry.getInterceptors(advisor);
+ * 3）、将增强器转为List&lt;MethodInterceptor&gt;； 如果是MethodInterceptor，直接加入到集合中
  * 如果不是，使用AdvisorAdapter将增强器转为MethodInterceptor； 转换完成返回MethodInterceptor数组；
  *
  * 3）、如果没有拦截器链，直接执行目标方法; 拦截器链（每一个通知方法又被包装为方法拦截器，利用MethodInterceptor机制）

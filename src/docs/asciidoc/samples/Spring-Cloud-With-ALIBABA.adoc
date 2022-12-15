@@ -49,7 +49,7 @@ seata:
   tx-service-group: my_test_tx_group
 ----
 
-NOTE: `my_test_tx_group` 组和 nacos-config.txt 中的配置的 `service.vgroup_mapping..${your-service-gruop}=default` 要一致。
+NOTE: `my_test_tx_group` 组和 nacos-config.txt 中的配置的 `service.vgroup_mapping..$\{your-service-gruop}=default` 要一致。
 
 项目所需的配置文件在 https://github.com/jcohy-sample/spring-sample/tree/4af7c0375732e469f8d4ca461255a668e54beb24/spring-cloud/spring-cloud-provider/conf[目录下]。
 

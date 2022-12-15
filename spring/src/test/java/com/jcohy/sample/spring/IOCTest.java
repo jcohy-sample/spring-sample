@@ -4,6 +4,7 @@ import com.jcohy.sample.spring.bean.Blue;
 import com.jcohy.sample.spring.bean.Person;
 import com.jcohy.sample.spring.config.MainConfig;
 import com.jcohy.sample.spring.config.MainConfig2;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -20,7 +21,7 @@ public class IOCTest {
 		Blue bean = applicationContext.getBean(Blue.class);
 		System.out.println(bean);
 
-		// 工厂Bean获取的是调用getObject创建的对象
+		// 工厂 Bean 获取的是调用 getObject 创建的对象
 		Object bean2 = applicationContext.getBean("colorFactoryBean");
 		Object bean3 = applicationContext.getBean("colorFactoryBean");
 		System.out.println("bean的类型：" + bean2.getClass());
@@ -70,6 +71,7 @@ public class IOCTest {
 
 	@SuppressWarnings("resource")
 	@Test
+	@Disabled
 	public void test01() {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				MainConfig.class);

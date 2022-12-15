@@ -1,6 +1,5 @@
 package com.jcohy.sample.spring_cloud.oauth.config;
 
-
 import com.jcohy.sample.spring_cloud.oauth.intercepter.RestTemplateUserContextInterceptor;
 import com.jcohy.sample.spring_cloud.oauth.intercepter.UserContextInterceptor;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -13,25 +12,26 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-public class CommonConfiguration  extends WebMvcConfigurerAdapter {
+public class CommonConfiguration extends WebMvcConfigurerAdapter {
 
-    /**
-     * 请求拦截器 用于微服务之间调用时进行鉴权
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new UserContextInterceptor());
-    }
+	/**
+	 * 请求拦截器 用于微服务之间调用时进行鉴权
+	 */
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new UserContextInterceptor());
+	}
 
-    /***
-     * RestTemplate 拦截器，在发送请求前设置鉴权的用户上下文信息
-     * @return
-     */
-    @LoadBalanced
-    @Bean
-    public RestTemplate restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getInterceptors().add(new RestTemplateUserContextInterceptor());
-        return restTemplate;
-    }
+	/***
+	 * RestTemplate 拦截器，在发送请求前设置鉴权的用户上下文信息
+	 * @return /
+	 */
+	@LoadBalanced
+	@Bean
+	public RestTemplate restTemplate() {
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.getInterceptors().add(new RestTemplateUserContextInterceptor());
+		return restTemplate;
+	}
+
 }

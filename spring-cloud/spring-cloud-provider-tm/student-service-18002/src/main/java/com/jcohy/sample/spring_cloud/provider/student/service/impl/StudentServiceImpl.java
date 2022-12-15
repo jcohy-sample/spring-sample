@@ -86,7 +86,8 @@ public class StudentServiceImpl implements StudentService {
 
 		List<Map<String, Object>> mapList = studentScore.getMapList();
 
-		Student student = studentRepository.save(studentRepository.findStudentBySname(sname).orElse(new Student(sname, "55", "男")));
+		Student student = studentRepository
+				.save(studentRepository.findStudentBySname(sname).orElse(new Student(sname, "55", "男")));
 
 		// Thread.sleep(1000);
 		for (Map<String, Object> map : mapList) {

@@ -1,6 +1,5 @@
 package com.jcohy.sample.spring_cloud.oauth.intercepter;
 
-
 import com.jcohy.sample.spring_cloud.oauth.model.User;
 
 public class UserContextHolder {

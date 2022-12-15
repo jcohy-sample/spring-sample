@@ -153,7 +153,7 @@ include::{spring-cloud-code}/spring-cloud-provider-tm/course-service-18001/src/m
 [source,java,indent=0,subs="verbatim,quotes",role="primary"]
 .Java
 ----
-include::{spring-cloud-code}/spring-cloud-provider-tm/course-service-18001/src/main/java/com/jcohy/sample/spring_cloud/provider/course/servoce/impl/CourseServiceImpl.java[tag=code]
+include::{spring-cloud-code}/spring-cloud-provider-tm/course-service-18001/src/main/java/com/jcohy/sample/spring_cloud/provider/course/service/impl/CourseServiceImpl.java[tag=code]
 ----
 
 可以通过 http://localhost:端口号/h2-console 访问 h2 数据库。可以在项目启动过程中找到连接 url

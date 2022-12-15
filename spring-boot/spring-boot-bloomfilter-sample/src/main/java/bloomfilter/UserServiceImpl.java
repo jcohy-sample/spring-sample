@@ -5,7 +5,8 @@ import java.util.List;
 /**
  * 描述: .
  * <p>
- * Copyright © 2022 <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
+ * Copyright © 2022
+ * <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
  * </p>
  *
  * @author jiac
@@ -13,13 +14,15 @@ import java.util.List;
  * @since 2022.04.0
  */
 public class UserServiceImpl implements UserService {
-    @Override
-    public List<User> findAllUser() {
-        return null;
-    }
 
-    @Override
-    public User getUserByName(String name) {
-        return null;
-    }
+	@Override
+	public List<User> findAllUser() {
+		return null;
+	}
+
+	@Override
+	public User getUserByName(String name) {
+		return null;
+	}
+
 }

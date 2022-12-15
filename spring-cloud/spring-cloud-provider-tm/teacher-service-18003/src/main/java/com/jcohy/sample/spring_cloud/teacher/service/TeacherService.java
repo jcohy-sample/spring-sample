@@ -1,6 +1,5 @@
 package com.jcohy.sample.spring_cloud.teacher.service;
 
-
 import com.jcohy.sample.spring_cloud.provider.TeacherDto;
 import com.jcohy.sample.spring_cloud.teacher.model.Teacher;
 

@@ -37,7 +37,6 @@ public class StudentController {
 		return service.getStudentScoreByName(sname);
 	}
 
-
 	@RequestMapping(value = "/student/list", method = RequestMethod.GET)
 	public List<Student> list() {
 		return service.list();
@@ -52,7 +51,6 @@ public class StudentController {
 			@RequestParam(value = "ex", required = false) String exFlag) {
 		return service.addStudentScore(studentScore, exFlag);
 	}
-
 
 	/**
 	 * 获取单个学生的姓名，课程，教师信息。

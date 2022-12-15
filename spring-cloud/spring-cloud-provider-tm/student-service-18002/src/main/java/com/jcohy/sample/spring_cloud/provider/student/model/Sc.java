@@ -8,46 +8,46 @@ import java.io.Serializable;
 @IdClass(ScPk.class)
 public class Sc implements Serializable {
 
-    @Id
-    private Long sid;
+	@Id
+	private Long sid;
 
-    @Id
-    private Long cid;
+	@Id
+	private Long cid;
 
-    @Column(name = "score", nullable = false)
-    private Integer score;
+	@Column(name = "score", nullable = false)
+	private Integer score;
 
-    public Sc() {
-    }
+	public Sc() {
+	}
 
-    public Sc(Long sid, Long cid, Integer score) {
-        this.sid = sid;
-        this.cid = cid;
-        this.score = score;
-    }
+	public Sc(Long sid, Long cid, Integer score) {
+		this.sid = sid;
+		this.cid = cid;
+		this.score = score;
+	}
 
-    public Long getSid() {
-        return sid;
-    }
+	public Long getSid() {
+		return sid;
+	}
 
-    public void setSid(Long sid) {
-        this.sid = sid;
-    }
+	public void setSid(Long sid) {
+		this.sid = sid;
+	}
 
-    public Long getCid() {
-        return cid;
-    }
+	public Long getCid() {
+		return cid;
+	}
 
-    public void setCid(Long cid) {
-        this.cid = cid;
-    }
+	public void setCid(Long cid) {
+		this.cid = cid;
+	}
 
-    public Integer getScore() {
-        return score;
-    }
+	public Integer getScore() {
+		return score;
+	}
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+	public void setScore(Integer score) {
+		this.score = score;
+	}
 
 }

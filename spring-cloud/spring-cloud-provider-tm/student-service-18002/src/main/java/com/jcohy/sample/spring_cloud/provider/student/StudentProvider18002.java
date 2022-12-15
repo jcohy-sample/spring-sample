@@ -20,30 +20,30 @@ import org.springframework.context.annotation.Bean;
 @EnableFeignClients
 public class StudentProvider18002 {
 
-    private static final Logger log = LoggerFactory.getLogger(StudentProvider18002.class);
+	private static final Logger log = LoggerFactory.getLogger(StudentProvider18002.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(StudentProvider18002.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(StudentProvider18002.class, args);
+	}
 
+	@Bean
+	public CommandLineRunner demo(StudentRepository repository, ScRepository scRepository) {
+		return args -> {
+			repository.save(new Student("赵雷", "19900101", "男"));
+			repository.save(new Student("田电", "19901221", "男"));
+			repository.save(new Student("孙风", "19900520", "男"));
+			repository.save(new Student("李云", "19900806", "男"));
+			repository.save(new Student("周梅", "19911201", "女"));
+			repository.save(new Student("吴兰", "19920301", "女"));
+			repository.save(new Student("郑竹", "19890701", "女"));
+			repository.save(new Student("王菊", "19900120", "女"));
 
-    @Bean
-    public CommandLineRunner demo(StudentRepository repository, ScRepository scRepository) {
-        return args -> {
-            repository.save(new Student("赵雷", "19900101", "男"));
-            repository.save(new Student("田电", "19901221", "男"));
-            repository.save(new Student("孙风", "19900520", "男"));
-            repository.save(new Student("李云", "19900806", "男"));
-            repository.save(new Student("周梅", "19911201", "女"));
-            repository.save(new Student("吴兰", "19920301", "女"));
-            repository.save(new Student("郑竹", "19890701", "女"));
-            repository.save(new Student("王菊", "19900120", "女"));
+			log.info("Course found with findAll():");
+			log.info("-------------------------------");
+			for (Student student : repository.findAll()) {
+				log.info(student.toString());
+			}
+		};
+	}
 
-            log.info("Course found with findAll():");
-            log.info("-------------------------------");
-            for (Student student : repository.findAll()) {
-                log.info(student.toString());
-            }
-        };
-    }
 }

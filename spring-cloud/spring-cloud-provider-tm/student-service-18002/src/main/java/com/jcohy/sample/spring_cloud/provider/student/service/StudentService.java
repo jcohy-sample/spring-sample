@@ -1,6 +1,5 @@
 package com.jcohy.sample.spring_cloud.provider.student.service;
 
-
 import com.jcohy.sample.spring_cloud.provider.student.dto.StudentScore;
 import com.jcohy.sample.spring_cloud.provider.student.model.Student;
 

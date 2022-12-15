@@ -19,11 +19,12 @@ import org.springframework.context.annotation.Primary;
  * 可以使用@Autowired(required=false); 5）、@Primary：让Spring进行自动装配的时候，默认使用首选的bean；
  * 也可以继续使用@Qualifier指定需要装配的bean的名字 BookService{
  *
- * &#064;Autowired  BookDao bookDao; }
+ * &#064;Autowired BookDao bookDao; }
  *
- * 2）、Spring还支持使用@Resource(JSR250)和@Inject(JSR330)[java规范的注解]  &#064;Resource:  可以和@Autowired一样实现自动装配功能；默认是按照组件名称进行装配的；
- * 没有能支持@Primary功能没有支持@Autowired（reqiured=false）;  &#064;Inject:  需要导入javax.inject的包，和Autowired的功能一样。没有required=false的功能；
- * &#064;Autowired:Spring定义的；  @Resource、@Inject都是java规范
+ * 2）、Spring还支持使用@Resource(JSR250)和@Inject(JSR330)[java规范的注解] &#064;Resource:
+ * 可以和@Autowired一样实现自动装配功能；默认是按照组件名称进行装配的； 没有能支持@Primary功能没有支持@Autowired（reqiured=false）;
+ * &#064;Inject: 需要导入javax.inject的包，和Autowired的功能一样。没有required=false的功能；
+ * &#064;Autowired:Spring定义的； @Resource、@Inject都是java规范
  *
  * AutowiredAnnotationBeanPostProcessor:解析完成自动装配功能；
  *
@@ -34,6 +35,7 @@ import org.springframework.context.annotation.Primary;
  * 4）、自定义组件想要使用Spring容器底层的一些组件（ApplicationContext，BeanFactory，xxx）；
  * 自定义组件实现xxxAware；在创建对象的时候，会调用接口规定的方法注入相关组件；Aware； 把Spring底层一些组件注入到自定义的Bean中；
  * xxxAware：功能使用xxxProcessor； ApplicationContextAware==》ApplicationContextAwareProcessor；
+ *
  * @author lfy
  *
  */
@@ -52,9 +54,9 @@ public class MainConifgOfAutowired {
 	}
 
 	/**
-	 * &#064;Bean标注的方法创建对象的时候，方法参数的值从容器中获取
-	 * @param car
-	 * @return
+	 * &#064;Bean 标注的方法创建对象的时候，方法参数的值从容器中获取
+	 * @param car car
+	 * @return /
 	 */
 	@Bean
 	public Color color(Car car) {

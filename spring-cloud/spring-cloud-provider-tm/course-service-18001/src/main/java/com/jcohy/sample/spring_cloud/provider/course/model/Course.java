@@ -55,11 +55,7 @@ public class Course implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Course{" +
-				"cid=" + cid +
-				", cname='" + cname + '\'' +
-				", tid=" + tid +
-				'}';
+		return "Course{" + "cid=" + cid + ", cname='" + cname + '\'' + ", tid=" + tid + '}';
 	}
 
 	public static CourseDto ofDto(Course course) {

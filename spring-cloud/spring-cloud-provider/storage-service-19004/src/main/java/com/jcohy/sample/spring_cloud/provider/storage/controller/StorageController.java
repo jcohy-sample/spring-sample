@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Description:
  *
  * @author fangliangsheng
- * @date 2019/3/28
  */
 @RestController
 public class StorageController {

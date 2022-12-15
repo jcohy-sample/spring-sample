@@ -17,13 +17,6 @@ import java.util.Map;
  * Copyright: Copyright (c) 2019 https://www.jcohy.com
  *
  * @author jcohy
- * @version v1.0.0
- * @Description: TODO 请添加该类的功能描述
- * @date 2019/7/12 9:42
- * <p>
- * Modification History: Date Author Version Description
- * ----------------------------------------------------------------------------------*
- * 2019/7/12 jcohy v1.0.0 修改原因
  */
 
 @Component

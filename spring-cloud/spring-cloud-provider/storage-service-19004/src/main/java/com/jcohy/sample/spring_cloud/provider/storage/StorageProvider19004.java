@@ -16,15 +16,15 @@ import java.math.BigDecimal;
 @EnableFeignClients
 public class StorageProvider19004 {
 
-    public static void main(String[] args) {
-        SpringApplication.run(StorageProvider19004.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(StorageProvider19004.class, args);
+	}
 
-    @Bean
-    public CommandLineRunner demo(StorageRepository repository) {
-        return args -> {
-            repository.save(new Storage(1L,"2001",10000));
-        };
-    }
+	@Bean
+	public CommandLineRunner demo(StorageRepository repository) {
+		return args -> {
+			repository.save(new Storage(1L, "2001", 10000));
+		};
+	}
 
 }

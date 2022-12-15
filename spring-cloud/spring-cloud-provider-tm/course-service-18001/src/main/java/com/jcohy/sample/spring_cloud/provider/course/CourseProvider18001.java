@@ -1,6 +1,5 @@
 package com.jcohy.sample.spring_cloud.provider.course;
 
-
 import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
 import com.jcohy.sample.spring_cloud.provider.course.model.Course;
 import com.jcohy.sample.spring_cloud.provider.course.repository.CourseRepository;
@@ -19,28 +18,29 @@ import org.springframework.context.annotation.Bean;
 @EnableDistributedTransaction
 public class CourseProvider18001 {
 
-    private static final Logger log = LoggerFactory.getLogger(CourseProvider18001.class);
+	private static final Logger log = LoggerFactory.getLogger(CourseProvider18001.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(CourseProvider18001.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(CourseProvider18001.class, args);
+	}
 
-//    @Bean
-//    public CommandLineRunner demo(CourseRepository repository) {
-//        return args -> {
-//            repository.save(new Course("语文",2L));
-//            repository.save(new Course("数学",1L));
-//            repository.save(new Course("英语",3L));
-//            repository.save(new Course("语文",4L));
-//            repository.save(new Course("数学",5L));
-//            repository.save(new Course("语文",6L));
-//            repository.save(new Course("数学",7L));
-//
-//            log.info("Course found with findAll():");
-//            log.info("-------------------------------");
-//            for (Course customer : repository.findAll()) {
-//                log.info(customer.toString());
-//            }
-//        };
-//    }
+	// @Bean
+	// public CommandLineRunner demo(CourseRepository repository) {
+	// return args -> {
+	// repository.save(new Course("语文",2L));
+	// repository.save(new Course("数学",1L));
+	// repository.save(new Course("英语",3L));
+	// repository.save(new Course("语文",4L));
+	// repository.save(new Course("数学",5L));
+	// repository.save(new Course("语文",6L));
+	// repository.save(new Course("数学",7L));
+	//
+	// log.info("Course found with findAll():");
+	// log.info("-------------------------------");
+	// for (Course customer : repository.findAll()) {
+	// log.info(customer.toString());
+	// }
+	// };
+	// }
+
 }

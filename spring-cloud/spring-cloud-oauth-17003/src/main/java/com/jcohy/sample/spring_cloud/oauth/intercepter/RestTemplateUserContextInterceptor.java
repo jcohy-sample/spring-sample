@@ -12,13 +12,6 @@ import java.io.IOException;
  * Copyright: Copyright (c) 2019 https://www.jcohy.com
  *
  * @author jcohy
- * @version v1.0.0
- * @Description: TODO 请添加该类的功能描述
- * @date 2019/7/12 10:06
- * <p>
- * Modification History: Date Author Version Description
- * ----------------------------------------------------------------------------------*
- * 2019/7/12 jcohy v1.0.0 修改原因
  */
 
 public class RestTemplateUserContextInterceptor implements ClientHttpRequestInterceptor {

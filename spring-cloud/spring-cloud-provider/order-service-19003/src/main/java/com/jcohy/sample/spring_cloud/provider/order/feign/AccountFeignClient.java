@@ -10,7 +10,6 @@ import java.math.BigDecimal;
  * Description:
  *
  * @author fangliangsheng
- * @date 2019-04-04
  */
 @FeignClient(name = "account-service", url = "127.0.0.1:19001")
 public interface AccountFeignClient {

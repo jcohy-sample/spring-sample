@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * 描述: .
  * <p>
- * Copyright © 2022 <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
+ * Copyright © 2022
+ * <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
  * </p>
  *
  * @author jiac
@@ -17,29 +18,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @GetMapping("/")
-    public String root() {
-        return "redirect:/index";
-    }
+	@GetMapping("/")
+	public String root() {
+		return "redirect:/index";
+	}
 
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
+	@GetMapping("/index")
+	public String index() {
+		return "index";
+	}
 
-    @GetMapping("/user/index")
-    public String userIndex() {
-        return "user/index";
-    }
+	@GetMapping("/user/index")
+	public String userIndex() {
+		return "user/index";
+	}
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 
-    @GetMapping("/login-error")
-    public String loginError(Model model) {
-        model.addAttribute("loginError",true);
-        return "login";
-    }
+	@GetMapping("/login-error")
+	public String loginError(Model model) {
+		model.addAttribute("loginError", true);
+		return "login";
+	}
+
 }

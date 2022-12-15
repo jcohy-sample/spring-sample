@@ -11,12 +11,6 @@ import java.util.List;
  *
  * @author jcohy
  * @version v1.0.0
- * @Description: TODO 请添加该类的功能描述
- * @date 2019/7/10 16:59
- * <p>
- * Modification History: Date Author Version Description
- * ----------------------------------------------------------------------------------*
- * 2019/7/10 jcohy v1.0.0 修改原因
  */
 
 public interface ScRepository extends JpaRepository<Sc, Long> {

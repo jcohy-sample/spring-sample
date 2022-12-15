@@ -7,7 +7,8 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 /**
  * 描述: .
  * <p>
- * Copyright © 2022 <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
+ * Copyright © 2022
+ * <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
  * </p>
  *
  * @author jiac
@@ -17,8 +18,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @EnableEurekaServer
 @SpringBootApplication
 public class EurekaSampleApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(EurekaSampleApplication.class, args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaSampleApplication.class, args);
+	}
 
 }

@@ -2,12 +2,14 @@ package com.jcohy.sample.spring;
 
 import com.jcohy.sample.spring.aop.MathCalculator;
 import com.jcohy.sample.spring.config.MainConfigOfAOP;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class IOCTest_AOP {
 
 	@Test
+	@Disabled
 	public void test01() {
 		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				MainConfigOfAOP.class)) {

@@ -4,23 +4,24 @@ import java.io.Serializable;
 
 public class ScPk implements Serializable {
 
-    private Long sid;
+	private Long sid;
 
-    private Long cid;
+	private Long cid;
 
-    public Long getSid() {
-        return sid;
-    }
+	public Long getSid() {
+		return sid;
+	}
 
-    public void setSid(Long sid) {
-        this.sid = sid;
-    }
+	public void setSid(Long sid) {
+		this.sid = sid;
+	}
 
-    public Long getCid() {
-        return cid;
-    }
+	public Long getCid() {
+		return cid;
+	}
 
-    public void setCid(Long cid) {
-        this.cid = cid;
-    }
+	public void setCid(Long cid) {
+		this.cid = cid;
+	}
+
 }

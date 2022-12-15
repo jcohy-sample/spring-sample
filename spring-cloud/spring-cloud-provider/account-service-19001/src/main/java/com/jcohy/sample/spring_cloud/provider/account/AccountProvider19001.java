@@ -23,8 +23,9 @@ public class AccountProvider19001 {
 	@Bean
 	public CommandLineRunner demo(AccountRepository repository) {
 		return args -> {
-			repository.save(new Account(1L,"1001",new BigDecimal(10000)));
-			repository.save(new Account(2L,"1002",new BigDecimal(10000)));
+			repository.save(new Account(1L, "1001", new BigDecimal(10000)));
+			repository.save(new Account(2L, "1002", new BigDecimal(10000)));
 		};
 	}
+
 }

@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 描述: .
  * <p>
- * Copyright © 2022 <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
+ * Copyright © 2022
+ * <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
  * </p>
  *
  * @author jiac
@@ -16,7 +17,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RabbitSampleApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RabbitSampleApplication.class,args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(RabbitSampleApplication.class, args);
+	}
+
 }

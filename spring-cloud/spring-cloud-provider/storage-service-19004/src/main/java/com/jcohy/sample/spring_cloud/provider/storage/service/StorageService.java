@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
  * Description:
  *
  * @author fangliangsheng
- * @date 2019-04-04
  */
 @Service
 public class StorageService {

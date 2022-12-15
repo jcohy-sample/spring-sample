@@ -13,7 +13,8 @@ import java.util.concurrent.Callable;
 /**
  * 描述: .
  * <p>
- * Copyright © 2022 <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
+ * Copyright © 2022
+ * <a href="https://www.jcohy.com" target= "_blank">https://www.jcohy.com</a>
  * </p>
  *
  * @author jiac
@@ -23,44 +24,46 @@ import java.util.concurrent.Callable;
 @Controller
 public class IndexController implements RabbitCallback {
 
-    private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+	private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 
-    private final ProducerMessage producerMessage;
+	private final ProducerMessage producerMessage;
 
-    private String message;
+	private String message;
 
-    public IndexController(ProducerMessage producerMessage) {
-        this.producerMessage = producerMessage;
-    }
+	public IndexController(ProducerMessage producerMessage) {
+		this.producerMessage = producerMessage;
+	}
 
-    @GetMapping("/")
-    @ResponseBody
-    public String index() {
-        return "index";
-    }
+	@GetMapping("/")
+	@ResponseBody
+	public String index() {
+		return "index";
+	}
 
-    @GetMapping("/a")
-    @ResponseBody
-    public Callable<String> a() {
-        return () -> {
-            ObjectMapper objectMapper = new ObjectMapper();
+	@GetMapping("/a")
+	@ResponseBody
+	public Callable<String> a() {
+		return () -> {
+			ObjectMapper objectMapper = new ObjectMapper();
 
-            Order order = new Order(UUID.randomUUID().toString(), "TEST", "订单已生产");
-            message = null;
-            log.info("开始发送消息");
-            producerMessage.sendMessageToA(objectMapper.writeValueAsString(order), this);
-            log.info("发送消息之前 message: {}", message);
-            for (; ; ) {
-                if (message != null) {
-                    log.info("发送消息之后 message: {}", message);
-                    break;
-                }
-            }
-            return message;
-        };
-    }
-    @Override
-    public void returnCallBack(String message) {
-        this.message = message;
-    }
+			Order order = new Order(UUID.randomUUID().toString(), "TEST", "订单已生产");
+			message = null;
+			log.info("开始发送消息");
+			producerMessage.sendMessageToA(objectMapper.writeValueAsString(order), this);
+			log.info("发送消息之前 message: {}", message);
+			for (;;) {
+				if (message != null) {
+					log.info("发送消息之后 message: {}", message);
+					break;
+				}
+			}
+			return message;
+		};
+	}
+
+	@Override
+	public void returnCallBack(String message) {
+		this.message = message;
+	}
+
 }

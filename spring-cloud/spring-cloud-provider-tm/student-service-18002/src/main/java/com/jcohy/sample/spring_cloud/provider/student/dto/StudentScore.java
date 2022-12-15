@@ -12,12 +12,6 @@ import java.util.Map;
  *
  * @author jcohy
  * @version v1.0.0
- * @Description: TODO 请添加该类的功能描述
- * @date 2019/7/9 16:14
- * <p>
- * Modification History: Date Author Version Description
- * ----------------------------------------------------------------------------------*
- * 2019/7/9 jcohy v1.0.0 修改原因
  */
 
 public class StudentScore implements Serializable {

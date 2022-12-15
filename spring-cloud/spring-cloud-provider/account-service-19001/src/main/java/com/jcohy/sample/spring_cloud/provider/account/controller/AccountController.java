@@ -15,7 +15,6 @@ import java.math.BigDecimal;
  * Description:
  *
  * @author fangliangsheng
- * @date 2017/12/25
  */
 @RestController
 @RefreshScope

@@ -18,24 +18,25 @@ import org.springframework.context.annotation.Bean;
 @EnableDistributedTransaction
 public class TeacherProvider18003 {
 
-    private static final Logger log = LoggerFactory.getLogger(TeacherProvider18003.class);
-    public static void main(String[] args) {
-        SpringApplication.run(TeacherProvider18003.class, args);
-    }
+	private static final Logger log = LoggerFactory.getLogger(TeacherProvider18003.class);
 
-    @Bean
-    public CommandLineRunner demo(TeacherRepository repository){
-        return args -> {
-            repository.save(new Teacher("张三"));
-            repository.save(new Teacher("李四"));
-            repository.save(new Teacher("王五"));
+	public static void main(String[] args) {
+		SpringApplication.run(TeacherProvider18003.class, args);
+	}
 
-            log.info("Course found with findAll():");
-            log.info("-------------------------------");
-            for (Teacher teacher : repository.findAll()) {
-                log.info(teacher.toString());
-            }
-        };
-    }
+	@Bean
+	public CommandLineRunner demo(TeacherRepository repository) {
+		return args -> {
+			repository.save(new Teacher("张三"));
+			repository.save(new Teacher("李四"));
+			repository.save(new Teacher("王五"));
+
+			log.info("Course found with findAll():");
+			log.info("-------------------------------");
+			for (Teacher teacher : repository.findAll()) {
+				log.info(teacher.toString());
+			}
+		};
+	}
 
 }

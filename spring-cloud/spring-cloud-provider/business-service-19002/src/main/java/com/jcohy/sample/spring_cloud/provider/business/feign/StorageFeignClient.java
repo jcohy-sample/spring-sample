@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Description:
  *
  * @author fangliangsheng
- * @date 2019-04-04
  */
 @FeignClient(name = "storage-service", url = "127.0.0.1:19004")
 public interface StorageFeignClient {

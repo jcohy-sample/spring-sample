@@ -14,17 +14,17 @@ import javax.sql.DataSource;
 /**
  * 声明式事务：
  *
- * 环境搭建： 1、导入相关依赖 数据源、数据库驱动、Spring-jdbc模块 2、配置数据源、JdbcTemplate（Spring提供的简化数据库操作的工具）操作数据
+ * 环境搭建： 1、导入相关依赖 数据源、数据库驱动、Spring-jdbc 模块 2、配置数据源、JdbcTemplate（Spring提供的简化数据库操作的工具）操作数据
  * 3、给方法上标注 @Transactional 表示当前方法是一个事务方法； 4、 @EnableTransactionManagement 开启基于注解的事务管理功能；
  *
- * @EnableXXX 5、配置事务管理器来控制事务;
- * @Bean public PlatformTransactionManager transactionManager()
+ * {@code @EnableXXX} 5、配置事务管理器来控制事务; {@code @Bean} public PlatformTransactionManager
+ * transactionManager()
  *
  *
- * 原理： 1）、@EnableTransactionManagement
- * 利用TransactionManagementConfigurationSelector给容器中会导入组件 导入两个组件 AutoProxyRegistrar
- * ProxyTransactionManagementConfiguration 2）、AutoProxyRegistrar： 给容器中注册一个
- * InfrastructureAdvisorAutoProxyCreator 组件； InfrastructureAdvisorAutoProxyCreator：？
+ * 原理： 1）、@EnableTransactionManagement 利用 TransactionManagementConfigurationSelector
+ * 给容器中会导入组件 导入两个组件 AutoProxyRegistrar ProxyTransactionManagementConfiguration
+ * 2）、AutoProxyRegistrar： 给容器中注册一个 InfrastructureAdvisorAutoProxyCreator 组件；
+ * InfrastructureAdvisorAutoProxyCreator：？
  * 利用后置处理器机制在对象创建以后，包装对象，返回一个代理对象（增强器），代理对象执行方法利用拦截器链进行调用；
  *
  * 3）、ProxyTransactionManagementConfiguration 做了什么？ 1、给容器中注册事务增强器；

@@ -1,6 +1,5 @@
 package com.jcohy.sample.spring_cloud.provider.course.service;
 
-
 import com.jcohy.sample.spring_cloud.provider.course.model.Course;
 import com.jcohy.sample.spring_cloud.provider.CourseDto;
 
