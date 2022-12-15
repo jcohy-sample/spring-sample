@@ -7,9 +7,9 @@
 * 15 分钟
 * 一个你喜欢的文本编辑器或 IDE
 * JDK 1.8 以上
-* Nacos 1.3.2
-* Seatable1.4.2
-* Gradle 4+ 或 Maven 3.2+
+* https://software.jcohy.com/linux/nacos-server-1.3.2.tar.gz[Nacos 1.3.2 Linux] ，https://software.jcohy.com/windows/nacos-server-1.3.2.zip[Nacos 1.3.2 Windows]
+* https://software.jcohy.com/linux/seata-server-1.4.2.tar.gz[Seata 1.4.2 Linux]，https://software.jcohy.com/windows/seata-server-1.4.2.zip[Seata 1.4.2 Windows]
+* Gradle 6+ 或 Maven 3.2+
 * 您还可以将代码直接导入到您的 IDE 中：
 ** Spring Tool Suite (STS)
 ** IntelliJ IDEA
@@ -19,13 +19,39 @@
 
 与大多数 Spring 入门指南一样，您可以从头开始并完成每个步骤，也可以绕过您已经熟悉的基本设置步骤。 无论哪种方式，您最终都会得到有效的代码。
 
-== 下载安装并启动 Nacos，Seata
+== 下载安装并启动 Nacos
 
-https://nacos.io/zh-cn/docs/quick-start.html[Nacos 快速开始]
+. 下载并解压 https://software.jcohy.com/linux/nacos-server-1.3.2.tar.gz[Nacos 1.3.2 Linux] 或 https://software.jcohy.com/windows/nacos-server-1.3.2.zip[Nacos 1.3.2 Windows]
+. 进入到解压目录中的 `bin` 文件夹下，使用 `./startup.sh -m standalone`（Linux） 或 `startup.cmd -m standalone`（Windows） 启动服务器
+. 打开 `http://localhost:8848/nacos`。默认账号密码为 `nacos`
+
+更多请参考 https://nacos.io/zh-cn/docs/quick-start.html[Nacos 快速开始]
 
 https://github.com/alibaba/spring-cloud-alibaba/blob/2021.x/spring-cloud-alibaba-docs/src/main/asciidoc-zh/sca-upgrade-guide.adoc#spring-cloud-alibaba-2021010-%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97[Nacos 升级指南]
 
-在 Nacos 中添加 `account-service-19001-dev.yml` 文件。
+=== 下载安装并启动 Seata Server
+
+. 下载并解压 https://software.jcohy.com/linux/seata-server-1.4.2.tar.gz[Seata 1.4.2 Linux]，https://software.jcohy.com/windows/seata-server-1.4.2.zip[Seata 1.4.2 Windows]
+. 修改 seata 配置文件 `$seata_server_home/conf/registry.conf`，`$seata_server_home` 这是是 seata server 的解压目录。
+. 在 `conf` 目录下添加 `nacos-config.txt` 文件。可以通过官方提供的 https://github.com/seata/seata/tree/1.4.2/script/config-center/nacos[脚本执行]。
+. 在创建应用程序客户端时，在 `yaml` 或 `properties` 文件中指定以下配置:
+[source,yaml]
+----
+seata:
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group : "SEATA_GROUP"
+      username: "nacos"
+      password: "nacos"
+  tx-service-group: my_test_tx_group
+----
+
+NOTE: `my_test_tx_group` 组和 nacos-config.txt 中的配置的 `service.vgroup_mapping..${your-service-gruop}=default` 要一致。
+
+项目所需的配置文件在 https://github.com/jcohy-sample/spring-sample/tree/4af7c0375732e469f8d4ca461255a668e54beb24/spring-cloud/spring-cloud-provider/conf[目录下]。
 
 === 创建服务
 
@@ -68,36 +94,14 @@ public class BusinessProvider19002 {
 
 == 测试
 
-1、添加学生成绩
+1、 购买下单，模拟全局事务提交
 
 [source,http]
 ----
-POST http://localhost:18002/student/score/add
-Content-Type: application/json
-
-{
-  "sname": "赵雷",
-  "mapList": [
-    {
-      "cname": "语文",
-      "tname": "张三",
-      "score": 69
-    },
-    {
-      "cname": "数学",
-      "tname": "李四",
-      "score": 89
-    },
-    {
-      "cname": "英语",
-      "tname": "王五",
-      "score": 66
-    }
-  ]
-}
+GET http://localhost:19002/purchase/commit
 ----
 
-2、查看
+2、购买下单，模拟全局事务回滚
 
 [source,http]
 ----
@@ -108,70 +112,11 @@ GET http://localhost:18002/student/name/赵雷
 
 [source,json]
 ----
-{
-  "sname": "赵雷",
-  "mapList": [
-    {
-      "score": 69,
-      "cname": "语文",
-      "tname": "张三"
-    },
-    {
-      "score": 89,
-      "cname": "数学",
-      "tname": "李四"
-    },
-    {
-      "score": 66,
-      "cname": "英语",
-      "tname": "王五"
-    }
-  ]
-}
+GET http://localhost:19002/purchase/rollback
 ----
-
-3、现在让我模拟异常请求，在第一步的请求中添加 `exFlag` 标志即可。在调用 课程和教师服务后模拟异常进行回滚操作
-
-[source,http]
-----
-POST http://localhost:18002/student/score/add?ex
-Content-Type: application/json
-
-{
-  "sname": "田电",
-  "mapList": [
-    {
-      "cname": "语文",
-      "tname": "张三",
-      "score": 69
-    },
-    {
-      "cname": "数学",
-      "tname": "李四",
-      "score": 89
-    },
-    {
-      "cname": "英语",
-      "tname": "王五",
-      "score": 66
-    }
-  ]
-}
-----
-
-4、查看结果 `http://localhost:18002/student/name/田电`，结果如下
-
-[source,json]
-----
-{
-"sname": "田电",
-"mapList": []
-}
-----
-
 
 == 源码
 
-https://github.com/jcohy-sample/spring-sample/tree/main/spring-cloud/spring-cloud-provider-tm[源码] 和 https://github.com/jcohy-sample/spring-sample/blob/main/spring-cloud/spring-cloud-provider-tm/http/provider.http[http 请求文件]
+https://github.com/jcohy-sample/spring-sample/tree/main/spring-cloud/spring-cloud-provider[源码] 和 https://github.com/jcohy-sample/spring-sample/blob/main/spring-cloud/spring-cloud-provider/http/provider.http[http 请求文件]
 
 
