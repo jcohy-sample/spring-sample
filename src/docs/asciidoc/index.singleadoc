@@ -26,3 +26,5 @@ include::password.adoc[leveloffset=+1]
 include::restful.adoc[leveloffset=+1]
 
 include::validator.adoc[leveloffset=+1]
+
+include::samples.adoc[leveloffset=+1]

@@ -26,3 +26,5 @@ https://www.jcohy.com[*https://www.jcohy.com/projects*]
 <<restful#restful,RESTful>> :: RESTful.
 
 <<validator#validator,Hibernate Validator>> :: Hibernate Validator.
+
+<<samples#jcohy-samples,Hibernate Validator>> :: Spring 示例应用程序.

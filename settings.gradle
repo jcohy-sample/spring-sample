@@ -2,12 +2,13 @@ rootProject.name = 'spring-sample'
 
 include ":bom"
 
-include "spring"
+include ":spring"
 
 include ":spring-boot:spring-boot-rabbitmq-sample-15001"
+include ":spring-boot:spring-security-sample-16001"
 include ":spring-boot:spring-boot-bloomfilter-sample"
 
-include ":spring-security:spring-security-16001"
+//include ":spring-security:spring-security-16001"
 
 include ":spring-cloud:spring-cloud-eureka-sample-17001"
 include ":spring-cloud:spring-cloud-gateway-sample-17002"
