@@ -6,11 +6,6 @@ import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyController
 import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyRequestMapping;
 import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyService;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,6 +20,12 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Created by jiac on 2019/3/21. ClassName : com.jcohy.study.mvc.mvcframework.servlet
@@ -191,7 +192,7 @@ public class JcohyDispatcherServlet extends HttpServlet {
 			try {
 				Class<?> clazz = Class.forName(className.get(i));
 				if (clazz.isAnnotationPresent(JcohyController.class)) {
-					Object instance = clazz.newInstance();
+					Object instance = clazz.getDeclaredConstructor().newInstance();
 					// bean名称命名规则：1、首字母小写。2、自定义名称。3、自动类型匹配
 					String beanName = lowerFirstCase(clazz.getSimpleName());
 					ioc.put(beanName, instance);
@@ -203,11 +204,11 @@ public class JcohyDispatcherServlet extends HttpServlet {
 					if ("".equals(beanName.trim())) {
 						beanName = lowerFirstCase(clazz.getSimpleName());
 					}
-					Object instance = clazz.newInstance();
+					Object instance = clazz.getDeclaredConstructor().newInstance();
 					ioc.put(beanName, instance);
 					// 3、自动类型匹配
 					Class<?>[] interfaces = clazz.getInterfaces();
-					for (Class inter : interfaces) {
+					for (Class<?> inter : interfaces) {
 						ioc.put(inter.getName(), instance);
 					}
 				}

@@ -1,8 +1,8 @@
 package com.jcohy.sample.build;
 
-import com.jcohy.convention.conventions.ConventionsPlugin;
-import com.jcohy.convention.deployed.DeployedPlugin;
-import com.jcohy.convention.optional.OptionalDependenciesPlugin;
+import io.github.jcohy.gradle.conventions.ConventionsPlugin;
+import io.github.jcohy.gradle.deployed.DeployedPlugin;
+import io.github.jcohy.gradle.optional.OptionalDependenciesPlugin;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.Dependency;

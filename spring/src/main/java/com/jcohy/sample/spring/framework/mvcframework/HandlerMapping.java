@@ -2,13 +2,14 @@ package com.jcohy.sample.spring.framework.mvcframework;
 
 import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyRequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Created by jiac on 2019/3/21. ClassName : com.jcohy.study.mvc.mvcframework Description

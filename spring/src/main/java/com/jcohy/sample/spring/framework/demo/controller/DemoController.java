@@ -6,9 +6,10 @@ import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyController
 import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyRequestMapping;
 import com.jcohy.sample.spring.framework.mvcframework.annotation.JcohyRequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Created by jiac on 2019/3/21. ClassName : com.jcohy.study.mvc.demo.controller
