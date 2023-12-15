@@ -1,5 +1,24 @@
+= 项目说明
 
-= template-sample
-Sample 项目模板工程
+== 版本说明
 
-== 模板工程
+
+|===
+|组件 |版本号 |备注
+
+| SpringBoot
+| 3.0.0
+|
+
+| SpringCloud
+| 2022.0.1
+|
+
+| Gradle
+| 7.6
+|
+
+| SpringCloud Alibaba
+| 2022.0.0.0-RC2
+|
+|===

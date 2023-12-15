@@ -1,0 +1,9 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	implementation "io.netty:netty-all"
+	implementation "org.springframework:spring-webflux"
+	implementation "io.projectreactor.netty:reactor-netty"
+	implementation "org.springframework.cloud:spring-cloud-starter-consul-discovery"
+	implementation "org.springframework.cloud:spring-cloud-starter-consul-config"
+}

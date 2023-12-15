@@ -1,0 +1,5 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	runtimeOnly "com.nimbusds:oauth2-oidc-sdk"
+}

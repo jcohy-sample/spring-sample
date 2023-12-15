@@ -4,24 +4,41 @@ include ":bom"
 
 include ":spring"
 
-include ":spring-boot:spring-boot-rabbitmq-sample-15001"
-include ":spring-boot:spring-security-sample-16001"
-include ":spring-boot:spring-boot-bloomfilter-sample"
+// SpringBoot
+file("${rootDir}/spring-boot").eachDir {it -> {
+	include ":spring-boot:${it.name}"
+}}
 
-//include ":spring-security:spring-security-16001"
 
-include ":spring-cloud:spring-cloud-eureka-sample-17001"
-include ":spring-cloud:spring-cloud-gateway-sample-17002"
-include ":spring-cloud:spring-cloud-oauth-17003"
+// Spring Cloud
+def excludeDir = ["conf","http","sql","src"]
+file("${rootDir}/spring-cloud").eachDir {it -> {
+	if (!it.name.contains("provider")) {
+		include ":spring-cloud:${it.name}"
+	} else {
+		include ":spring-cloud:${it.name}"
+		it.eachDir(sub -> {
+			if (!excludeDir.contains(sub.name)) {
+				include ":spring-cloud:${it.name}:${sub.name}"
+			}
+		})
+	}
+}}
 
-include ":spring-cloud:spring-cloud-provider"
-include ":spring-cloud:spring-cloud-provider:account-service-19001"
-include ":spring-cloud:spring-cloud-provider:business-service-19002"
-include ":spring-cloud:spring-cloud-provider:order-service-19003"
-include ":spring-cloud:spring-cloud-provider:storage-service-19004"
+// Spring Security
+include ":spring-security"
+file("${rootDir}/spring-security").eachDir {it -> {
+	include ":spring-security:${it.name}"
+}}
 
-include ":spring-cloud:spring-cloud-provider-tm"
-include ":spring-cloud:spring-cloud-provider-tm:txlcn-tm-18004"
-include ":spring-cloud:spring-cloud-provider-tm:course-service-18001"
-include ":spring-cloud:spring-cloud-provider-tm:student-service-18002"
-include ":spring-cloud:spring-cloud-provider-tm:teacher-service-18003"
+// Spring Security Oauth
+def excludeOauthDir = ["conf","http","sql","src","images","image"]
+include ":spring-security-oauth"
+include "oauth2-custom-consent-authorizationserver"
+file("${rootDir}/spring-security-oauth").eachDir {it -> {
+	it.eachDir(sub -> {
+		if (!excludeOauthDir.contains(sub.name)) {
+			include ":spring-security-oauth:${it.name}:${sub.name}"
+		}
+	})
+}}

@@ -1,0 +1,11 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+	implementation "mysql:mysql-connector-java"
+	implementation "org.flywaydb:flyway-mysql"
+	implementation "io.netty:netty-all"
+	implementation "org.springframework:spring-webflux"
+	implementation "io.projectreactor.netty:reactor-netty"
+	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+}

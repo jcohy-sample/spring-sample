@@ -1,0 +1,4 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+}

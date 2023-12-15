@@ -6,8 +6,8 @@ configure(allprojects) { abjects ->
     version = "1.0.0"
 
     repositories {
+		maven { url = 'https://maven.aliyun.com/repository/central'}
         mavenCentral()
-        maven { url = 'https://maven.aliyun.com/repository/central'}
         maven { url = 'https://oss.sonatype.org/content/repositories/snapshots/'}
     }
 

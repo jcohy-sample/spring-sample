@@ -1,0 +1,9 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+	implementation "org.springframework.boot:spring-boot-starter-cache"
+	implementation "com.github.ben-manes.caffeine:caffeine"
+	runtimeOnly "com.nimbusds:oauth2-oidc-sdk"
+	implementation "mysql:mysql-connector-java"
+}

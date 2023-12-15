@@ -1,0 +1,5 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	implementation 'com.github.penggle:kaptcha:2.3.2'
+}

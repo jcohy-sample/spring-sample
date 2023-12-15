@@ -1,0 +1,7 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	implementation 'org.springframework.cloud:spring-cloud-starter-consul-config'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'dev.samstevens.totp:totp-spring-boot-starter:1.7.1'
+}

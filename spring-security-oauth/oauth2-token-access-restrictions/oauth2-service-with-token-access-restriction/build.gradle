@@ -1,0 +1,5 @@
+description = "Spring Cloud Provider Business Service Sample"
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-data-redis"
+}
